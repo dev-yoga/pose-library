@@ -18,6 +18,20 @@ const App = () => {
       url: 'https://www.yogajournal.com/poses/monkey-pose/',
       objectID: 2
     },
+    {
+      name: 'Mermaid Pose',
+      sanskrit: '',
+      pose_type: ['Backbend', 'Hip Opener'],
+      url: 'https://yogainternational.com/article/view/mermaid-pose-its-pretty-but-is-it-safe',
+      objectID: 3
+    },
+    {
+      name: 'Half Frog Pose',
+      sanskrit: 'Ardha Bhekasana',
+      pose_type: 'Hip Opener',
+      url: 'https://www.yogajournal.com/poses/half-frog-pose/',
+      objectID: 4
+    },
   ];
 
 

@@ -20,19 +20,34 @@ const App = () => {
     },
   ];
 
-  const handleSearch = (event) => {
-    console.log(event.target.value);
-  };
+
+  const [searchTerm, setSearchTerm] = React.useState('');
+
+const searchedPoses = poses.filter((pose)=>
+    pose.name.toLowerCase().includes(searchTerm.toLowerCase())
+  );
+
+
+const handleSearch = (event) => {
+  setSearchTerm(event.target.value);
+};
 
   return (
     <div>
       <h1>Yoga Poses</h1>
       <Search onSearch={handleSearch} />
       <hr />
-      <List list={poses} />
+      <List list={searchedPoses} />
     </div>
   );
 };
+
+const Search = (props) => (
+  <div>
+    <label htmlFor="search">Search: </label>
+    <input id="search" type="text" onChange={props.onSearch} />
+  </div>
+);
 
 const List = (props) => (
   <ul>
@@ -51,23 +66,5 @@ const Item = (props) => (
     <span>{props.item.pose_type}</span>
   </li>
 );
-
-const Search = (props) => {
-  const [searchTerm, setSearchTerm] = React.useState('');
-  const handleChange = (event) => {
-    setSearchTerm(event.target.value);
-    props.onSearch(event);
-  };
-
-  return (
-    <div>
-    <label htmlFor="search">Search: </label>
-    <input id="search" type="text" onChange={handleChange} />
-    <p>
-      Searching for <strong>{searchTerm}</strong>.
-    </p>
-  </div>
-  );
-};
 
 export default App;
